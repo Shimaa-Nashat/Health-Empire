@@ -1,0 +1,536 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+/* ================= BODY ================= */
+body {
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  position: relative;
+  width: 800px;
+  max-width: 100%;
+  min-height: 600px;
+
+  background: var(--section-bg-hover);
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= TITLES ================= */
+.section-header {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: "DM Serif Display", serif;
+  margin-bottom: 8px;
+}
+
+.container span {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* ================= BUTTONS ================= */
+.container button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  padding: 10px 45px;
+
+  border-radius: 20px;
+
+  background: var(--accent);
+  color: var(--mode);
+
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+.container button:hover {
+  background: var(--accent-light);
+  transform: scale(1.03);
+}
+
+.container button.hidden {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* ================= FORM ================= */
+.container form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  padding: 0 40px;
+}
+
+/* ================= INPUTS ================= */
+.container input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  padding: 12px 15px;
+
+  border-radius: 12px;
+
+  background: var(--input-bg);
+
+  color: var(--text-primary);
+}
+
+.container input::placeholder {
+  color: var(--text-secondary);
+}
+
+.container input:focus {
+  outline: 1px solid var(--highlight);
+}
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: var(--input-bg);
+  color: var(--text-primary);
+
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* ================= FORM CONTAINERS ================= */
+.form-container {
+  position: absolute;
+  top: 0;
+
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  transition: all 0.6s ease-in-out;
+}
+
+/* LOGIN */
+.log-in {
+  left: 0;
+  z-index: 2;
+}
+
+/* SIGNUP */
+.sign-up {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ACTIVE */
+.container.active .log-in {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* ================= TOGGLE CONTAINER ================= */
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 50%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 150px 0 0 100px;
+
+  z-index: 1000;
+
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+/* ================= TOGGLE ================= */
+.toggle {
+  position: relative;
+
+  left: -100%;
+
+  width: 200%;
+  height: 100%;
+
+  display: flex;
+
+  transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+/* ================= TOGGLE PANELS ================= */
+.toggle-panel {
+  position: relative;
+
+  flex: 0 0 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 0 40px;
+
+  text-align: center;
+
+  background-image: url("../images/login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* OVERLAY */
+.toggle-panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    155deg,
+    rgba(20, 50, 15, 0.75),
+    rgba(50, 80, 20, 0.65)
+  );
+
+  z-index: 1;
+}
+
+/* CONTENT */
+.toggle-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+.container.active .toggle-left {
+  transform: translateX(0);
+}
+
+/* RIGHT */
+.toggle-right {
+  transform: translateX(0);
+}
+
+/* ================= TOGGLE TEXT ================= */
+.toggle-title {
+  color: #fff;
+
+  font-size: 30px;
+  font-family: "DM Serif Display", serif;
+
+  margin-bottom: 10px;
+}
+
+.toggle-paragraph {
+  color: #fff;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  margin-bottom: 20px;
+}
+
+/* ================= LOGO ================= */
+.logo header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ================= ERRORS ================= */
+.error {
+  color: red;
+  font-size: 11px;
+
+  align-self: flex-start;
+  margin-left: 12px;
+
+  min-height: 14px;
+}
+
+input.error-border {
+  border: 1px solid red;
+}
+
+input.success-border {
+  border: 1px solid green;
+}
+
+/* ================= LINKS ================= */
+.mobile-switch a {
+  color: var(--primary);
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mobile-switch{
+  color: var(--accent);
+  margin-top: 10px;
+}
+.forgot-link{
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* ================= PASSWORD RESET ================= */
+.reset-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2000;
+}
+
+.reset-modal.active {
+  display: flex;
+}
+
+.reset-box {
+  position: relative;
+  width: min(420px, 100%);
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--section-bg-hover);
+  color: var(--text-primary);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.reset-box h2 {
+  font-size: 26px;
+  font-family: "DM Serif Display", serif;
+  margin-bottom: 8px;
+}
+
+.reset-box p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.reset-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reset-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.reset-box input:focus {
+  outline: 1px solid var(--highlight);
+}
+
+.reset-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--section-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.reset-box button[type="submit"] {
+    border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 20px;
+  background: var(--accent);
+  color: var(--mode);
+  font-size: 14px;
+  transition: 0.3s;
+  align-self: flex-end;
+  margin-top: 8px;
+}
+
+/* ================= FOOTERS ================= */
+.signup-footer,
+.login-footer {
+  position: absolute;
+  bottom: 16px;
+
+  font-size: 12px;
+
+  color: var(--accent);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+
+  .container {
+    max-width: 450px;
+    width: 100%;
+    min-height: 0;
+    border-radius: 20px;
+  }
+
+  /* STACK FORMS */
+  .form-container {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    padding: 40px 0 60px;
+
+    transform: none !important;
+    transition: none;
+  }
+  .container input {
+    max-width: 320px;
+  }
+
+  .sign-up {
+    display: none;
+  }
+
+  .log-in {
+    display: flex;
+  }
+
+  .container.active .log-in {
+    display: none;
+  }
+
+  .container.active .sign-up {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* HIDE TOGGLE */
+  .toggle-container {
+    display: none;
+  }
+
+  .container form {
+    padding: 0 24px;
+  }
+
+  .section-header {
+    font-size: 24px;
+  }
+
+  .mobile-switch {
+    color: var(--accent);
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  .signup-footer,
+  .login-footer {
+    bottom: 12px;
+    font-size: 11px;
+  }
+}
+
+/* ================= TABLET ================= */
+@media (min-width: 641px) and (max-width: 900px) {
+  .container {
+    width: 95%;
+  }
+
+  .container form {
+    padding: 0 25px;
+  }
+
+  .toggle-title {
+    font-size: 24px;
+  }
+}

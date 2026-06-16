@@ -1,0 +1,235 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= AI ASSISTANT ================= */
+#ai-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  z-index: 2200;
+  transition: var(--transition);
+}
+
+#ai-fab:hover,
+#ai-fab.active {
+  transform: translateY(-3px) scale(1.04);
+  background: var(--accent);
+  color: var(--mode);
+}
+.ai-icon {
+  width: 100%;
+}
+.chat-modal {
+  position: fixed;
+  right: 24px;
+  bottom: 98px;
+  width: min(380px, calc(100vw - 32px));
+  height: min(540px, calc(100vh - 130px));
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--section-bg);
+  color: var(--text-primary);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.22);
+  z-index: 2199;
+}
+
+.chat-modal.active {
+  display: flex;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--primary-gradient);
+  color: #fff;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.chat-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#close-chat {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#close-chat:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+#messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--section-bg);
+}
+
+#messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background: var(--border-md);
+  border-radius: 999px;
+}
+
+.msg {
+  max-width: 82%;
+  padding: 11px 13px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.msg.user {
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+  background: var(--accent);
+  color: var(--mode);
+}
+
+.msg.bot {
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 6px;
+  background: var(--section-bg-hover);
+  color: var(--text-primary);
+}
+
+.msg.typing {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.quick-replies {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border);
+  background: var(--section-bg);
+}
+
+.quick-replies button {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--section-bg-hover);
+  color: var(--text-primary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quick-replies button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.quick-replies::-webkit-scrollbar {
+  height: 6px;
+}
+.quick-replies::-webkit-scrollbar-thumb {
+  background: var(--border-md);
+  border-radius: 999px;
+}
+
+.input-box {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  background: var(--section-bg);
+}
+
+#userInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 11px 14px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+#userInput:focus {
+  border-color: var(--primary);
+}
+
+#sendBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 16px;
+  background: var(--accent);
+  color: var(--mode);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#sendBtn:hover {
+  background: var(--accent-mid);
+}
+
+@media (max-width: 640px) {
+  #ai-fab {
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .chat-modal {
+    right: 12px;
+    bottom: 86px;
+    width: calc(95vw - 24px);
+    height: min(540px, calc(97vh - 112px));
+    border-radius: 16px;
+  }
+
+  .chat-header {
+    cursor: default;
+  }
+}

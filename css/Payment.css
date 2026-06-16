@@ -1,0 +1,382 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  background: var(--bg-gradient);
+  background-size: 200% 200%;
+  color: var(--text-primary);
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  background: var(--bg-gradient);
+  padding: 40px;
+  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* مهم لتساوي اليمين والشمال */
+}
+
+/* ================= LEFT ================= */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  flex: 2;
+
+  background: var(--section-bg);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+/* ================= RIGHT (IMPORTANT FIX) ================= */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  flex: 1.2;
+
+  background: var(--section-bg);
+  border-radius: 20px;
+  padding: 25px;
+
+  max-height: 85vh; /* يخلي الكارت ثابت */
+  overflow: hidden; /* يمنع الصفحة تتمدد */
+}
+
+/* ================= FORM ================= */
+.payment-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* ================= CARD ================= */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px 40px;
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.card:hover::before {
+  left: 150%;
+  transition: 2.6s ease;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 15px;
+  font-size: 18px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+/* shared style */
+.card,
+.btn {
+  background: linear-gradient(
+    135deg,
+    var(--primary-mid-visa),
+    var(--primary-dark-visa)
+  );
+  color: var(--mode);
+}
+
+/* ================= CARD HEADER ================= */
+.card-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visa {
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.chip {
+  width: 40px;
+  border-radius: 10px;
+}
+
+/* ================= INPUTS ================= */
+.card-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-field label {
+  font-size: 14px;
+}
+
+.card-field input {
+  background: var(--input-bg);
+  color: var(--text-primary);
+
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.card-field input::placeholder {
+  color: var(--accent-mid);
+}
+
+.card-field input:focus {
+  outline: 1px solid var(--highlight);
+}
+
+/* ================= ROW ================= */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row .card-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.expiry,
+.cvv {
+  flex: 0 0 88px;
+  width: auto;
+}
+
+.payment-error {
+  min-height: 15px;
+  color: #c01919;
+  font-size: 11px;
+}
+
+.card-field input.payment-invalid {
+  outline: 1px solid #ff6b6b;
+}
+
+.card-field input.payment-valid {
+  outline: 1px solid #8cf0a4;
+}
+
+/* ================= SUMMARY ================= */
+.summary {
+  border-bottom: 1px solid var(--primary-visa);
+  width: 100%;
+  padding: 10px;
+
+  background: var(--section-bg-hover);
+  text-align: center;
+  border-radius: 15px;
+
+  font-size: 20px;
+  color: var(--accent);
+}
+
+/* ================= PRICE ================= */
+.price {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-mid-visa),
+    var(--primary-dark-visa)
+  );
+
+  color: var(--mode);
+  font-size: 17px;
+}
+
+/* ================= END NOTE ================= */
+.end {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: var(--section-bg-hover);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.eco-logo {
+  width: 50px;
+}
+
+.note {
+  font-size: 14px;
+}
+
+/* ================= ITEMS SCROLL AREA ================= */
+.items {
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* scrollbar */
+.items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.items::-webkit-scrollbar-thumb {
+  background: var(--primary-mid-visa);
+  border-radius: 10px;
+}
+
+/* ================= CART ITEM ================= */
+.items .cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background: var(--section-bg-hover);
+  width: 100%;
+}
+
+/* الصورة */
+.cart-img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* النص */
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.items .cart-item h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.items .cart-item p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .right {
+        order: -1;
+        width: 95%;
+    } 
+  .left {
+    width: 95%;
+  }
+
+  .expiry,
+  .cvv {
+    width: 100%;
+  }
+  h1 {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+
+  h3 {
+    font-size: clamp(16px, 2.5vw, 22px);
+  }
+
+  p {
+    font-size: clamp(13px, 2vw, 16px);
+  }
+}
+@media(max-width: 400px){
+  .card{
+    padding: 20px;
+  }
+  .btn {
+    font-size: 16px;
+    
+  }
+}

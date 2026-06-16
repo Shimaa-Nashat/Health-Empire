@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Health Empire - Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/login-signup.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- SIGN UP -->
+      <div class="form-container sign-up">
+        <form id="signup-form">
+          <h1 class="section-header">Sign Up</h1>
+          <div class="social-icons">
+            <a href="https://www.google.com/" title="Google"
+              ><i class="fa-brands fa-google"></i
+            ></a>
+            <a href="https://web.facebook.com/?_rdc=1&_rdr#" title="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.apple.com/eg/" title="Apple"
+              ><i class="fa-brands fa-apple"></i
+            ></a>
+          </div>
+          <span>or use your email</span>
+          <input type="text" placeholder="Username" id="signup-username" />
+          <small class="error" id="signup-username-error"></small>
+          <input type="email" placeholder="Email" id="signup-email" />
+          <small class="error" id="signup-email-error"></small>
+          <input type="password" placeholder="Password" id="signup-password" />
+          <small class="error" id="signup-password-error"></small>
+          <button type="submit" id="signup-button">Sign Up</button>
+        </form>
+        <p class="mobile-switch">
+          Already have an account? <a id="go-login">Log In</a>
+        </p>
+        <footer class="signup-footer">
+          <p>&copy; 2026 Health Empire. All rights reserved.</p>
+        </footer>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="form-container log-in">
+        <form id="login-form">
+          <h1 class="section-header">Log In</h1>
+          <div class="social-icons">
+            <a href="https://www.google.com/" title="Google"
+              ><i class="fa-brands fa-google"></i
+            ></a>
+            <a href="https://web.facebook.com/" title="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.apple.com/eg/" title="Apple"
+              ><i class="fa-brands fa-apple"></i
+            ></a>
+          </div>
+          <span>or use your credentials</span>
+          <input type="text" placeholder="Username" id="login-email" />
+          <small class="error" id="login-username-error"></small>
+          <input type="password" placeholder="Password" id="login-password" />
+          <small class="error" id="login-password-error"></small>
+          <a href="#" class="forgot-link" id="forgot-password">Forgot Your Password?</a>
+          <button type="submit" id="login-button">Log In</button>
+        </form>
+        <p class="mobile-switch">
+          Don't have an account? <a id="go-signup">Sign Up</a>
+        </p>
+        <footer class="login-footer">
+          <p>
+            &copy; <span id="current-year"></span> Health Empire. All rights
+            reserved.
+          </p>
+        </footer>
+      </div>
+
+      <!-- TOGGLE PANEL (desktop only) -->
+      <div class="toggle-container">
+        <div class="toggle">
+          <!-- RIGHT panel: show when NOT active (default: login visible) -->
+          <div class="toggle-panel toggle-right">
+            <h1 class="toggle-title">Hello Friend!</h1>
+            <p class="toggle-paragraph">
+              Register with your details to use all site features
+            </p>
+            <button type="button" class="hidden" id="login">Log In</button>
+          </div>
+          <!-- LEFT panel: show when active (signup visible) -->
+          <div class="toggle-panel toggle-left">
+            <h1 class="toggle-title">Welcome Back!</h1>
+            <p class="toggle-paragraph">
+              Enter your details to access all site features
+            </p>
+            <button type="button" class="hidden" id="signup">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PASSWORD RESET MODAL -->
+    <div class="reset-modal" id="reset-modal" aria-hidden="true">
+      <div class="reset-box" role="dialog" aria-labelledby="reset-title">
+        <button type="button" class="reset-close" id="reset-close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 id="reset-title">Reset Password</h2>
+        <p>Enter your email and we will send reset instructions.</p>
+        <form id="reset-form">
+          <input type="email" id="reset-email" placeholder="Email" />
+          <small class="error" id="reset-email-error"></small>
+          <button type="submit">Send Link</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="js/login-signup.js"></script>
+</html>

@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <title>Health Empire - Menu</title>
+    <link rel="stylesheet" href="css/ai.css" />
+  </head>
+
+  <body>
+    <button id="ai-fab"><img src="images/ai.png" alt="AI Assistant" class="ai-icon"></button>
+    <div id="chat-modal" class="chat-modal">
+      <div class="chat-header">
+        <h4>NutriBot AI</h4>
+        <button id="close-chat">✖</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <div class="input-box">
+        <input id="userInput" placeholder="Ask NutriBot..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+    <nav class="navbar">
+      <!-- Website logo and name -->
+      <a href="index.html">
+        <header class="logo">
+          <img
+            class="nav-logo"
+            src="images/logo.png"
+            alt="Health Empire Logo"
+          />
+          <h3>Health Empire</h3>
+        </header>
+      </a>
+
+      <!-- Navigation links container -->
+      <div class="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-link"><a href="index.html">Home</a></li>
+          <li class="nav-link"><a href="menu.html">Menu</a></li>
+          <li class="nav-link"><a href="Cart.html">Cart</a></li>
+          <li class="nav-link"><a href="doctors.html">Doctors</a></li>
+          <li class="nav-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+        <div class="nav-right">
+  <!-- لما يكون logged out -->
+  <a href="login-signup.html" id="login-btn">
+    <button class="login-button">Login</button>
+  </a>
+ 
+  <!-- لما يكون logged in (مخفي في البداية) -->
+  <div class="profile-menu" id="profile-menu" style="display:none;">
+    <div class="profile-trigger" id="profile-trigger">
+      <i class="fa-solid fa-circle-user profile-icon"></i>
+      <span id="profile-username"></span>
+      <i class="fa-solid fa-chevron-down profile-arrow"></i>
+    </div>
+    <div class="profile-dropdown" id="profile-dropdown">
+      <p id="dropdown-username"></p>
+      <p id="dropdown-email"></p>
+      <hr>
+      <button onclick="logout()" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+ 
+  <div id="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+</div>
+      </div>
+    </nav>
+    <!-- هنا الفورم بتاع السيرش اللي المستخدم بيكتب فيه اسم الوجبة عشان يدور عليها -->
+    <form>
+      <div>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder=" 🔎Find your meal.............."
+        />
+      </div>
+    </form>
+    <!-- هنا قسم الكاتيجوريز أو التصنيفات اللي المستخدم يقدر يفلتر بيها الوجبات -->
+    <div class="categories">
+      <div class="card active">All</div>
+      <div class="card">Breakfast</div>
+      <div class="card">Lunch</div>
+      <div class="card">Dinner</div>
+      <div class="card">Desserts</div>
+      <div class="card">Snacks</div>
+    </div>
+    <section class="menu">
+    <!-- وجبات الفطار هنا-->
+    <div class="breakfast-section">
+      <!-- كل كارد هنا بيمثل وجبة فطار كاملة فيها صورة واسم وسعر وسعرات وتقييم وزرار إضافة للسلة -->
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/1.jpeg" alt="Oatmeal with Milk" />
+        <h3>Oatmeal with Milk</h3>
+        <p>Oats, Skim Milk, Stevia</p>
+
+        <div class="kcal">🔥 210 kcal</div>
+        <div class="rating">⭐ 4.5 (120)</div>
+        <div class="price">55 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/2.jpeg" alt="Oatmeal with Fruits & Chia" />
+        <h3>Oatmeal with Fruits & Chia</h3>
+        <p>Oats, Milk, Banana, Berries, Chia Seeds</p>
+
+        <div class="kcal">🔥 320 kcal</div>
+        <div class="rating">⭐ 4.7 (150)</div>
+        <div class="price">70 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/3.jpeg" alt="Cream Cheese Toast" />
+        <h3>Cream Cheese Toast</h3>
+        <p>Bread, Cream Cheese, Cucumber</p>
+
+        <div class="kcal">🔥 280 kcal</div>
+        <div class="rating">⭐ 4.3 (90)</div>
+        <div class="price">55 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/4.jpeg" alt="Cottage Cheese Bruschetta" />
+        <h3>Cottage Cheese Bruschetta</h3>
+        <p>Baguette, Cottage Cheese, Tomato, Basil</p>
+
+        <div class="kcal">🔥 350 kcal</div>
+        <div class="rating">⭐ 4.4 (110)</div>
+        <div class="price">80 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/5.jpeg" alt="Chocolate Strawberry Toast" />
+        <h3>Chocolate Strawberry Toast</h3>
+        <p>Bread, Chocolate Spread, Strawberry</p>
+
+        <div class="kcal">🔥 380 kcal</div>
+        <div class="rating">⭐ 4.6 (200)</div>
+        <div class="price">60 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/6.jpeg" alt="Peanut Butter Toast" />
+        <h3>Peanut Butter Toast</h3>
+        <p>Toast, Peanut Butter</p>
+
+        <div class="kcal">🔥 190 kcal</div>
+        <div class="rating">⭐ 4.8 (180)</div>
+        <div class="price">70 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/7.jpeg" alt="Fruit & Nut Butter Toast" />
+        <h3>Fruit & Nut Butter Toast</h3>
+        <p>Peanut Butter, Banana, Strawberries</p>
+
+        <div class="kcal">🔥 310 kcal</div>
+        <div class="rating">⭐ 4.7 (140)</div>
+        <div class="price">100 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/8.jpeg" alt="Chocolate Oatmeal Bowl" />
+        <h3>Chocolate Oatmeal Bowl</h3>
+        <p>Oats, Cocoa, Banana, Granola</p>
+
+        <div class="kcal">🔥 410 kcal</div>
+        <div class="rating">⭐ 4.2 (80)</div>
+        <div class="price">140 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card breakfast">
+        <img src="images/imgmenu/9.jpeg" alt="Peanut Butter Banana Oatmeal" />
+        <h3>Peanut Butter Banana Oatmeal</h3>
+        <p>Oats, Milk, Peanut Butter, Banana</p>
+
+        <div class="kcal">🔥 420 kcal</div>
+        <div class="rating">⭐ 4.6 (160)</div>
+        <div class="price">120 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- هنا وجبات الغدا -->
+    <div class="lunch-section">
+      <!-- كل كارد هنا بيمثل وجبة غداء كاملة فيها صورة واسم وسعر وسعرات وتقييم وزرار إضافة للسلة -->
+      <div class="product-card lunch">
+        <img src="images/imgmenu/10.jpeg" alt="French Fries Crepe" />
+        <h3>French Fries Crepe</h3>
+        <p>
+          Savory crepe filled with crispy french fries, topped with a sprinkle
+          of cheese and parsley
+        </p>
+
+        <div class="kcal">🔥 450 kcal</div>
+        <div class="rating">⭐ 4.5 (120)</div>
+        <div class="price">120 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/11.jpeg" alt="French Fries Plate" />
+        <h3>French Fries Plate</h3>
+        <p>Deep-fried potato fries seasoned with paprika, oregano, and salt</p>
+
+        <div class="kcal">🔥 300 kcal</div>
+        <div class="rating">⭐ 4.7 (150)</div>
+        <div class="price">100 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/12.jpeg" alt="French Fries Crepe" />
+        <h3>French Fries Crepe</h3>
+        <p>
+          Deep-fried potato fries seasoned with paprika, oregano, and salt.
+          Served with ketchup and mayonnaise on the side.
+        </p>
+
+        <div class="kcal">🔥 450 kcal</div>
+        <div class="rating">⭐ 4.3 (90)</div>
+        <div class="price">130 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/13.jpeg" alt="Beef Shawarma & Fries Crepe" />
+        <h3>Beef Shawarma & Fries Crepe</h3>
+        <p>
+          Flatbread filled with grilled beef slices, french fries, fresh
+          tomatoes, lettuce, and garlic sauce.
+        </p>
+
+        <div class="kcal">🔥 580 kcal</div>
+        <div class="rating">⭐ 4.4 (110)</div>
+        <div class="price">140 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img
+          src="images/imgmenu/14.jpeg"
+          alt="Meat & Fried Potato Cubes Crepe"
+        />
+        <h3>Meat & Fried Potato Cubes Crepe</h3>
+        <p>
+          Crepe filled with sautéed meat cubes and golden fried potato cubes,
+          served with dipping sauce.
+        </p>
+
+        <div class="kcal">🔥 550 kcal</div>
+        <div class="rating">⭐ 4.6 (200)</div>
+        <div class="price">140 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/15.jpeg" alt="Loaded Chicken & Fries Crepe" />
+        <h3>Loaded Chicken & Fries Crepe</h3>
+        <p>Very stuffed crepe with fries and grilled chicken breast chunks.</p>
+
+        <div class="kcal">🔥 620 kcal</div>
+        <div class="rating">⭐ 4.8 (180)</div>
+        <div class="price">130 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img
+          src="images/imgmenu/16.jpeg"
+          alt="Creamy Chicken & Mushroom Pancakes"
+        />
+        <h3>Creamy Chicken & Mushroom Savory Pancakes</h3>
+        <p>
+          Savory pancakes stuffed with chicken and spinach, topped with creamy
+          mushroom sauce.
+        </p>
+
+        <div class="kcal">🔥 520 kcal</div>
+        <div class="rating">⭐ 4.7 (140)</div>
+        <div class="price">180 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/17.jpeg" alt="Air-Fried Nugget Pizza" />
+        <h3>Air-Fried Nugget Pizza</h3>
+        <p>
+          Thin dough with tomato sauce, mozzarella, peppers, and chicken
+          nuggets.
+        </p>
+
+        <div class="kcal">🔥 310 kcal</div>
+        <div class="rating">⭐ 4.2 (80)</div>
+        <div class="price">150 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img
+          src="images/imgmenu/18.jpeg"
+          alt="Crispy Chicken & Veggie Rice Plate"
+        />
+        <h3>Crispy Chicken & Veggie Rice Plate</h3>
+        <p>Air-fried chicken with white rice and sautéed vegetables.</p>
+
+        <div class="kcal">🔥 440 kcal</div>
+        <div class="rating">⭐ 4.6 (160)</div>
+        <div class="price">210 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/19.jpeg" alt="Classic Oat-Bun Burger" />
+        <h3>Classic Oat-Bun Burger</h3>
+        <p>Grilled patty with cheese, tomato, onion, lettuce, in oat bun.</p>
+
+        <div class="kcal">🔥 385 kcal</div>
+        <div class="rating">⭐ 4.9 (160)</div>
+        <div class="price">185 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img src="images/imgmenu/20.jpeg" alt="Roasted Chicken Leg & Veggies" />
+        <h3>Roasted Chicken Leg & Mixed Veggies</h3>
+        <p>1 medium roasted chicken leg with mixed vegetables.</p>
+
+        <div class="kcal">🔥 375 kcal</div>
+        <div class="rating">⭐ 4.6 (160)</div>
+        <div class="price">190 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img
+          src="images/imgmenu/21.jpeg"
+          alt="Meatballs & Potato Cubes with Rice"
+        />
+        <h3>Meatballs & Potato Cubes with Rice</h3>
+        <p>Beef meatballs with potato cubes and basmati rice.</p>
+
+        <div class="kcal">🔥 485 kcal</div>
+        <div class="rating">⭐ 4.6 (160)</div>
+        <div class="price">250 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card lunch">
+        <img
+          src="images/imgmenu/22.jpeg"
+          alt="Penne Pasta with Grilled Kofta"
+        />
+        <h3>Penne Pasta with Grilled Kofta</h3>
+        <p>
+          Boiled penne pasta with tomato sauce, grilled kofta, parmesan, and
+          parsley.
+        </p>
+
+        <div class="kcal">🔥 470 kcal</div>
+        <div class="rating">⭐ 4.6 (160)</div>
+        <div class="price">195 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+    <!-- هنا وجبات العشا -->
+    <div class="dinner-section">
+      <!-- كل كارد هنا بيمثل وجبة عشاء كاملة فيها صورة واسم وسعر وسعرات وتقييم وزرار إضافة للسلة -->
+      <div class="product-card dinner">
+        <img src="images/imgmenu/23.jpeg" alt="Mixed Fruit Yogurt Parfait" />
+        <h3>Mixed Fruit Yogurt Parfait</h3>
+        <p>Greek yogurt with mango, strawberries, raspberries, and kiwi.</p>
+
+        <div class="kcal">🔥 220 kcal</div>
+        <div class="rating">⭐ 4.5 (120)</div>
+        <div class="price">140 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dinner">
+        <img src="images/imgmenu/24.jpeg" alt="Mango Yogurt Mousse" />
+        <h3>Mango Yogurt Mousse</h3>
+        <p>
+          Layers of mango purée with creamy yogurt, topped with fresh mango and
+          mint.
+        </p>
+
+        <div class="kcal">🔥 250 kcal</div>
+        <div class="rating">⭐ 4.7 (150)</div>
+        <div class="price">80 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dinner">
+        <img src="images/imgmenu/25.jpeg" alt="Strawberry Yogurt Cup" />
+        <h3>Strawberry Yogurt Cup</h3>
+        <p>Yogurt topped with fresh strawberry slices.</p>
+
+        <div class="kcal">🔥 150 kcal</div>
+        <div class="rating">⭐ 4.3 (90)</div>
+        <div class="price">100 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dinner">
+        <img src="images/imgmenu/26.jpeg" alt="Blueberry & Grape Yogurt Bowl" />
+        <h3>Blueberry & Grape Yogurt Bowl</h3>
+        <p>Creamy blueberry yogurt topped with grapes and granola.</p>
+
+        <div class="kcal">🔥 210 kcal</div>
+        <div class="rating">⭐ 4.4 (110)</div>
+        <div class="price">100 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- هنا بداية الحلويات -->
+    <div class="desserts-section">
+      <!-- كل كارد هنا بيمثل سكشن الحلويات بشكل كامل فيها صورة واسم وسعر وسعرات وتقييم وزرار إضافة للسلة -->
+      <div class="product-card dessert">
+        <img src="images/imgmenu/27.jpeg" alt="Rich Oatmeal Cake" />
+        <h3>Rich Oatmeal Cake with Raw Chocolate</h3>
+        <p>Oats, milk, eggs, olive oil, raw chocolate. Serves 7 people.</p>
+
+        <div class="kcal">🔥 2500 kcal</div>
+        <div class="rating">⭐ 4.7</div>
+        <div class="price">800 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dessert">
+        <img src="images/imgmenu/28.jpeg" alt="Fluffy Oat Pancakes" />
+        <h3>Fluffy Oat Pancakes & Dark Chocolate</h3>
+        <p>Oats, eggs, yogurt, cocoa, nuts, berries.</p>
+
+        <div class="kcal">🔥 650 kcal</div>
+        <div class="rating">⭐ 4.6</div>
+        <div class="price">160 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+      <div class="product-card dessert">
+        <img src="images/imgmenu/40.jpeg" alt="C10 Chocolate oat biscuits" />
+        <h3>C10 Chocolate oat biscuits</h3>
+        <p>Delicious chocolate-flavored oat biscuits.</p>
+
+        <div class="kcal">🔥 500 kcal</div>
+        <div class="rating">⭐ 4.8</div>
+        <div class="price">60 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dessert">
+        <img src="images/imgmenu/29.jpeg" alt="Choco Oat Slice" />
+        <h3>Choco-Oat Slice</h3>
+        <p>Oats, chocolate, yogurt, berries, pecans.</p>
+
+        <div class="kcal">🔥 380 kcal</div>
+        <div class="rating">⭐ 4.5</div>
+        <div class="price">140 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dessert">
+        <img src="images/imgmenu/30.jpeg" alt="Vanilla Pear Oat Bake" />
+        <h3>Vanilla-Pear Oat Bake</h3>
+        <p>Oats, banana/pear, vanilla, honey.</p>
+
+        <div class="kcal">🔥 320 kcal</div>
+        <div class="rating">⭐ 4.4</div>
+        <div class="price">150 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card dessert">
+        <img src="images/imgmenu/31.jpeg" alt="Oat Biscuits" />
+        <h3>Oat Biscuits (10 pcs)</h3>
+        <p>Oats, milk, diet sugar.</p>
+
+        <div class="kcal">🔥 300 kcal</div>
+        <div class="rating">⭐ 4.3</div>
+        <div class="price">30 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- السناكات هنا  -->
+    <div class="snacks-section">
+      <!-- كل كارد هنا بيمثل السناكسر كاملة فيها صورة واسم وسعر وسعرات وتقييم وزرار إضافة للسلة -->
+      <div class="product-card snack">
+        <img src="images/imgmenu/33.jpeg" alt="Abu Auf Protein Puffs" />
+        <h3>Abu Auf Protein Puffs</h3>
+        <p>Cheese & spices flavored protein puffs.</p>
+
+        <div class="kcal">🔥 400 kcal</div>
+        <div class="rating">⭐ 4.4</div>
+        <div class="price">20 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/34.jpeg" alt="Goodies Veggie Puffs" />
+        <h3>Goodies Veggie Puffs</h3>
+        <p>Light veggie flavored puffs.</p>
+
+        <div class="kcal">🔥 100 kcal</div>
+        <div class="rating">⭐ 4.2</div>
+        <div class="price">10 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/35.jpeg" alt="Sugar Free Strawberry Jelly" />
+        <h3>Sugar Free Strawberry Jelly</h3>
+        <p>Low calorie sugar free jelly.</p>
+
+        <div class="kcal">🔥 72 kcal</div>
+        <div class="rating">⭐ 4.3</div>
+        <div class="price">40 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/36.jpeg" alt="Cheese Rice Cake" />
+        <h3>Cheese Rice Cake</h3>
+        <p>Light rice cake with cheese flavor.</p>
+
+        <div class="kcal">🔥 25 kcal</div>
+        <div class="rating">⭐ 4.1</div>
+        <div class="price">30 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/37.jpeg" alt="Halo Protein Puffs Cheese" />
+        <h3>Halo Protein Puffs - Cheese</h3>
+        <p>High protein cheese flavored puffs.</p>
+
+        <div class="kcal">🔥 118 kcal</div>
+        <div class="rating">⭐ 4.5</div>
+        <div class="price">15 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/38.jpeg" alt="Halo Protein Puffs Parmesan" />
+        <h3>Halo Protein Puffs - Parmesan</h3>
+        <p>Parmesan flavored protein puffs.</p>
+
+        <div class="kcal">🔥 118 kcal</div>
+        <div class="rating">⭐ 4.3</div>
+        <div class="price">15 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+
+      <div class="product-card snack">
+        <img src="images/imgmenu/39.jpeg" alt="Halo Protein Puffs Sriracha" />
+        <h3>Halo Protein Puffs - Sriracha</h3>
+        <p>Sriracha flavored protein puffs.</p>
+
+        <div class="kcal">🔥 118 kcal</div>
+        <div class="rating">⭐ 4.3</div>
+        <div class="price">15 EGP</div>
+
+        <div class="qty">
+          <button type="button">-</button>
+          <span>1</span>
+          <button type="button">+</button>
+        </div>
+
+        <button type="button" class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+    </section>
+
+    <div id="toast"></div>
+
+    <!-- رسالة تظهر لما البحث ميلاقيش أي نتائج -->
+    <div id="noResults">No meals found</div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <!-- Contact form section -->
+      <section class="contact">
+        <h3>Contact Us</h3>
+        <form action="#" id="contact-form" method="post" novalidate>
+          <input
+            type="email"
+            name="contactEmail"
+            id="contact-email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <p class="contact-alert"></p>
+          <textarea
+            name="contactMessage"
+            id="contact-message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+          <p class="contact-alert"></p>
+          <button type="submit" id="contact-submit-button">Submit</button>
+        </form>
+      </section>
+      <!-- Footer content -->
+      <div class="footer-content">
+        <!-- Footer navigation links -->
+        <ul class="footer-links">
+          <li class="footer-link"><a href="index.html">Home</a></li>
+          <li class="footer-link"><a href="menu.html">Menu</a></li>
+          <li class="footer-link"><a href="Cart.html">Cart</a></li>
+          <li class="footer-link"><a href="doctors.html">Doctors</a></li>
+          <li class="footer-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+
+        <a href="index.html"><h3>Health Empire</h3></a>
+        <p>Expert guidance. Real results. Your wellness journey starts here.</p>
+
+        <!-- Social media links -->
+        <div class="social-links">
+          <a href="#" title="Follow us on Facebook">
+            <i class="fa-brands fa-facebook-f social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Twitter">
+            <i class="fa-brands fa-twitter social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Instagram">
+            <i class="fa-brands fa-instagram social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on TikTok">
+            <i class="fa-brands fa-tiktok social-icon"></i>
+          </a>
+        </div>
+        <!-- Copyright text -->
+        <p>
+          &copy; <span id="current-year"></span> Health Empire. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ai.js"></script>
+  </body>
+</html>

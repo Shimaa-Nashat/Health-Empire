@@ -1,0 +1,292 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-size: 200% 200%;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= PAGE ================= */
+.page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ================= HERO ================= */
+.inner-hero .hero-copy,
+.centered-copy {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-copy h1,
+.centered-copy h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy p,
+.centered-copy p,
+.feature-card p,
+.panel p,
+.specialty,
+.section-note {
+  color: var(--text-secondary);
+}
+
+/* ================= CHIP ================= */
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mode);
+  background: var(--accent);
+  transition: 0.3s ease;
+}
+
+.section-chip:hover {
+  transform: scale(1.05);
+}
+
+/* ================= DOCTORS GRID ================= */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* ================= DOCTOR CARD ================= */
+.doctor-card {
+  min-height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.doctor-card:hover {
+  background: var(--section-bg-hover);
+  border-color: var(--accent-light);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
+}
+
+/* ================= IMAGE FIX (IMPORTANT) ================= */
+.doctor-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--section-bg-hover);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.doctor-card:hover .doctor-image {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+/* ================= BODY ================= */
+.doctor-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+
+.doctor-body h3 {
+  min-height: 44px;
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.specialty {
+  min-height: 22px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.doctor-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.doctor-meta strong {
+  white-space: nowrap;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+/* ================= META ================= */
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--rating);
+  font-weight: 700;
+}
+
+/* ================= BUTTON ================= */
+.book-button {
+  width: 100%;
+  min-height: 44px;
+  color: var(--mode);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.book-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--accent-mid), var(--accent));
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= GLOBAL CARD STYLE ================= */
+.floating-card,
+.panel,
+.feature-card,
+.doctor-card {
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+}
+
+/* ================= FOCUS ACCESSIBILITY ================= */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(34, 197, 94, 0.35);
+  outline-offset: 3px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .doctors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .doctors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .page-section {
+    padding: 25px 16px;
+  }
+
+  .hero-copy h1,
+  .centered-copy h1 {
+    font-size: 2rem;
+  }
+
+  .doctor-card {
+    border-radius: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .doctor-card {
+    width: 90%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .doctor-body {
+    padding: 16px;
+  }
+
+  .book-button {
+    width: 100%;
+    text-align: center;
+  }
+}

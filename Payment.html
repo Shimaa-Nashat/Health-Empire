@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Empire-Online Payment</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/Payment.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta
+      name="description"
+      content="Health Empire is your destination for fresh, healthy meals tailored to your lifestyle. Discover nutritious dishes, expert guidance from doctors and coaches, and personalized plans to help you live a healthier, happier life."
+    />
+    <meta
+      name="keywords"
+      content="healthy food, healthy meals, diet plans, fitness, nutrition, meal prep, healthy lifestyle, doctors, coaches, wellness, Health Empire"
+    />
+    <meta name="author" content="Health Empire" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/ai.css" />
+  </head>
+
+  <body>
+    <button id="ai-fab"><img src="images/ai.png" alt="AI Assistant" class="ai-icon"></button>
+    <div id="chat-modal" class="chat-modal">
+      <div class="chat-header">
+        <h4>NutriBot AI</h4>
+        <button id="close-chat">✖</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <div class="input-box">
+        <input id="userInput" placeholder="Ask NutriBot..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <!-- Website logo and name -->
+      <a href="index.html">
+        <header class="logo">
+          <img
+            class="nav-logo"
+            src="images/logo.png"
+            alt="Health Empire Logo"
+          />
+          <h3>Health Empire</h3>
+        </header>
+      </a>
+
+      <!-- Navigation links container -->
+      <div class="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-link"><a href="index.html">Home</a></li>
+          <li class="nav-link"><a href="menu.html">Menu</a></li>
+          <li class="nav-link"><a href="Cart.html">Cart</a></li>
+          <li class="nav-link"><a href="doctors.html">Doctors</a></li>
+          <li class="nav-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+        <div class="nav-right">
+  <!-- لما يكون logged out -->
+  <a href="login-signup.html" id="login-btn">
+    <button class="login-button">Login</button>
+  </a>
+ 
+  <!-- لما يكون logged in (مخفي في البداية) -->
+  <div class="profile-menu" id="profile-menu" style="display:none;">
+    <div class="profile-trigger" id="profile-trigger">
+      <i class="fa-solid fa-circle-user profile-icon"></i>
+      <span id="profile-username"></span>
+      <i class="fa-solid fa-chevron-down profile-arrow"></i>
+    </div>
+    <div class="profile-dropdown" id="profile-dropdown">
+      <p id="dropdown-username"></p>
+      <p id="dropdown-email"></p>
+      <hr>
+      <button onclick="logout()" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+ 
+  <div id="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+</div>
+      </div>
+    </nav>
+
+    <!---->
+
+    <div class="container">
+      <div class="left">
+        <div class="description">
+          CHECKOUT PROCESS
+          <h1>Payment Details</h1>
+          <p>
+            Complete your transaction by providing your credit card<br />
+            information below.
+          </p>
+        </div>
+
+        <form action="#" method="POST" class="payment-form">
+          <div class="card">
+            <div class="card-top">
+              <img src="images/payment/Chip.png" class="chip" alt="Chip" />
+              <span class="visa">VISA</span>
+            </div>
+            <div class="card-field">
+              <label>CARD NUMBER</label>
+              <input
+                type="text"
+                id="card-number"
+                placeholder="Card number"
+                maxlength="19"
+                inputmode="numeric"
+              />
+              <small class="payment-error" id="card-number-error"></small>
+            </div>
+            <div class="row">
+              <div class="card-field expiry">
+                <label>EXPIRY</label>
+                <input
+                  type="text"
+                  id="expiry-date"
+                  placeholder="MM/YY"
+                  maxlength="5"
+                  inputmode="numeric"
+                />
+                <small class="payment-error" id="expiry-date-error"></small>
+              </div>
+              <div class="card-field cvv">
+                <label>CVV</label>
+                <input
+                  type="text"
+                  id="cvv"
+                  placeholder="CVV"
+                  maxlength="3"
+                  inputmode="numeric"
+                />
+                <small class="payment-error" id="cvv-error"></small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn">Complete Purchase →</button>
+        </form>
+      </div>
+
+      <div class="right">
+        <div class="summary">
+          <h3>Order Summary</h3>
+        </div>
+        <div class="items">
+          <!-- Order items will be displayed here -->
+        </div>
+        <div class="price">
+          <div class="subtotal">
+            <p>Subtotal</p>
+          </div>
+          <div class="shipping">
+            <p>Shipping</p>
+          </div>
+          <div class="total">
+            <p>Total</p>
+          </div>
+        </div>
+        <div class="end">
+          <img
+            src="images/payment/friendly-logo.png"
+            class="eco-logo"
+            alt="Eco-friendly logo"
+          />
+          <p class="note">
+            By purchasing, you support sustainable farming practices. 100% of
+            our packaging is biodegradable.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <!-- Contact form section -->
+      <section class="contact">
+        <h3>Contact Us</h3>
+        <form action="#" id="contact-form" method="post" novalidate>
+          <input
+            type="email"
+            name="contactEmail"
+            id="contact-email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <p class="contact-alert"></p>
+          <textarea
+            name="contactMessage"
+            id="contact-message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+          <p class="contact-alert"></p>
+          <button type="submit" id="contact-submit-button">Submit</button>
+        </form>
+      </section>
+
+      <!-- Footer content -->
+      <div class="footer-content">
+        <!-- Footer navigation links -->
+        <ul class="footer-links">
+          <li class="footer-link"><a href="index.html">Home</a></li>
+          <li class="footer-link"><a href="menu.html">Menu</a></li>
+          <li class="footer-link"><a href="Cart.html">Cart</a></li>
+          <li class="footer-link"><a href="doctors.html">Doctors</a></li>
+          <li class="footer-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+
+        <a href="index.html"><h3>Health Empire</h3></a>
+        <p>Expert guidance. Real results. Your wellness journey starts here.</p>
+
+        <!-- Social media links -->
+        <div class="social-links">
+          <a href="#" title="Follow us on Facebook">
+            <i class="fa-brands fa-facebook-f social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Twitter">
+            <i class="fa-brands fa-twitter social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Instagram">
+            <i class="fa-brands fa-instagram social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on TikTok">
+            <i class="fa-brands fa-tiktok social-icon"></i>
+          </a>
+        </div>
+        <!-- Copyright text -->
+        <p>
+          &copy; <span id="current-year"></span> Health Empire. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/ai.js"></script>
+  </body>
+</html>

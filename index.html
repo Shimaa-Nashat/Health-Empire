@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Health Empire is your destination for fresh, healthy meals tailored to your lifestyle. Discover nutritious dishes, expert guidance from doctors and coaches, and personalized plans to help you live a healthier, happier life."
+    />
+    <meta
+      name="keywords"
+      content="healthy food, healthy meals, diet plans, fitness, nutrition, meal prep, healthy lifestyle, doctors, coaches, wellness, Health Empire"
+    />
+    <meta name="author" content="Health Empire" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Health Empire</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/ai.css" />
+  </head>
+
+  <body>
+    <button id="ai-fab"><img src="images/ai.png" alt="AI Assistant" class="ai-icon"></button>
+    <div id="chat-modal" class="chat-modal">
+      <div class="chat-header">
+        <h4>NutriBot AI</h4>
+        <button id="close-chat">✖</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <div class="input-box">
+        <input id="userInput" placeholder="Ask NutriBot..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <!-- Website logo and name -->
+      <a href="index.html">
+        <header class="logo">
+          <img
+            class="nav-logo"
+            src="images/logo.png"
+            alt="Health Empire Logo"
+          />
+          <h3>Health Empire</h3>
+        </header>
+      </a>
+
+      <!-- Navigation links container -->
+      <div class="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-link"><a href="index.html">Home</a></li>
+          <li class="nav-link"><a href="menu.html">Menu</a></li>
+          <li class="nav-link"><a href="Cart.html">Cart</a></li>
+          <li class="nav-link"><a href="doctors.html">Doctors</a></li>
+          <li class="nav-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+        <div class="nav-right">
+  <!-- لما يكون logged out -->
+  <a href="login-signup.html" id="login-btn">
+    <button class="login-button">Login</button>
+  </a>
+ 
+  <!-- لما يكون logged in (مخفي في البداية) -->
+  <div class="profile-menu" id="profile-menu" style="display:none;">
+    <div class="profile-trigger" id="profile-trigger">
+      <i class="fa-solid fa-circle-user profile-icon"></i>
+      <span id="profile-username"></span>
+      <i class="fa-solid fa-chevron-down profile-arrow"></i>
+    </div>
+    <div class="profile-dropdown" id="profile-dropdown">
+      <p id="dropdown-username"></p>
+      <p id="dropdown-email"></p>
+      <hr>
+      <button onclick="logout()" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+ 
+  <div id="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+</div>
+      </div>
+    </nav>
+
+    <!-- ================= LANDING PAGE ================= -->
+    <!-- Main hero section of the homepage -->
+    <main class="header">
+      <!-- Text content of the header -->
+      <div class="header-content">
+        <h1 class="header-title">
+          Fresh Healthy Meals, Made <span>Just For You</span>
+        </h1>
+        <p>
+          Our team carefully selects natural ingredients to bring you balanced
+          and delicious dishes every day.
+        </p>
+        <a href="menu.html">
+          <button class="order-button">
+            Order Now
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+        </a>
+      </div>
+
+      <!-- Header images section -->
+      <div class="header-images">
+        <!-- Decorative circle design -->
+        <div class="circle">
+          <div class="dashed-circle"></div>
+        </div>
+        <!-- Main header food image -->
+        <img
+          src="images/header/mainHeaderImage.png"
+          alt="Delicious Healthy Meal"
+          class="main-header-img"
+          id="main-img"
+        />
+        <!-- Additional food images -->
+        <div class="additional-header-images">
+          <img
+            src="images/header/headerImage1.png"
+            alt="Delicious Healthy Meal"
+            class="header-img"
+          />
+          <img
+            src="images/header/headerImage2.png"
+            alt="Delicious Healthy Meal"
+            class="header-img"
+          />
+          <img
+            src="images/header/mainHeaderImage.png"
+            alt="Delicious Healthy Meal"
+            class="header-img"
+          />
+          <img
+            src="images/header/headerImage3.png"
+            alt="Delicious Healthy Meal"
+            class="header-img"
+          />
+          <img
+            src="images/header/headerImage4.png"
+            alt="Delicious Healthy Meal"
+            class="header-img"
+          />
+        </div>
+      </div>
+    </main>
+    <!-- ================= ABOUT US ================= -->
+    <section class="about-us">
+      <div class="about-us_content">
+        <h2>Healthy living made simple, powerful, and delicious.</h2>
+        <p class="main-description">
+          We are more than just healthy meals. Our certified doctors and expert
+          coaches design personalized plans tailored to your body and goals. We
+          deliver precision-balanced meals you’ll truly enjoy, with quality you
+          can trust and results you can see.
+        </p>
+        <p class="sub-description">
+          Expert guidance. Real results. Your wellness journey starts here.
+        </p>
+      </div>
+      <!-- ABOUT US images section -->
+      <img
+        src="images/about us/aboutUsImage.png"
+        alt="Chef"
+        class="about-us-image"
+      />
+    </section>
+
+    <!-- ================= TOP SELLERS ================= -->
+    <section class="top-sellers">
+      <div class="top-sellers-header">
+        <h2 class="section-header">Our Top Sellers</h2>
+        <a href="menu.html"><button>Go To Menu</button></a>
+      </div>
+      <div class="sellers-container">
+        <div class="seller-card">
+          <img
+            src="images/top saller/topSeller1.jpg"
+            alt="Fit Chicken Burger"
+            class="seller-card-img"
+          />
+          <div class="seller-card-content">
+            <h3 >Classic Oat-Bun Burger</h3>
+            <div class="rate-cal">
+              <i class="fa-solid fa-star star-rating"> 4.9</i>
+              <i class="fa-solid fa-fire cal"> 385 &nbsp;kcal</i>
+            </div>
+            <div class="card-price">
+              <span>185 EGP</span>
+              <button class="add-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="seller-card">
+          <img
+            src="images/top saller/topSeller2.jpg"
+            alt="C10 Chocolate oat biscuits"
+            class="seller-card-img"
+          />
+          <div class="seller-card-content">
+            <h3>C10 Chocolate oat biscuits</h3>
+            <div class="rate-cal">
+              <i class="fa-solid fa-star star-rating"> 4.8</i>
+              <i class="fa-solid fa-fire cal"> 500 &nbsp;kcal</i>
+            </div>
+            <div class="card-price">
+              <span>60 EGP</span>
+              <button class="add-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="seller-card">
+          <img
+            src="images/top saller/topSeller3.jpg"
+            alt="Golden Peanut Butter"
+            class="seller-card-img"
+          />
+          <div class="seller-card-content">
+            <h3>Peanut Butter Toast</h3>
+            <div class="rate-cal">
+              <i class="fa-solid fa-star star-rating"> 4.8</i>
+              <i class="fa-solid fa-fire cal"> 190 &nbsp;kcal</i>
+            </div>
+            <div class="card-price">
+              <span>70 EGP</span>
+              <button class="add-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DOCTORS AND COACHES ================= -->
+    <section class="doctors-coaches">
+      <h2 class="section-header section-header-start" id="meet-our-team">
+        Meet Our Team
+      </h2>
+      <div class="contain">
+        <img
+          class="main-image"
+          src="images/doctorsAndCoachs/mainImage.png"
+          alt="Our Team"
+        />
+        <div class="doctors-coaches-content">
+          <div class="doctors">
+            <img
+              src="images/doctorsAndCoachs/doctor.png"
+              alt="Doctor"
+              class="doctors-coaches-img"
+            />
+            <div class="doctors-content">
+              <h3 class="doctors-coaches-title">Our Doctors</h3>
+              <a href="doctors.html"
+                ><button class="doctors-coaches-button">
+                  Go To Doctors
+                </button></a
+              >
+            </div>
+          </div>
+          <div class="coaches">
+            <img
+              src="images/doctorsAndCoachs/coach.png"
+              alt="Coach"
+              class="doctors-coaches-img"
+            />
+            <div class="coaches-content">
+              <h3 class="doctors-coaches-title">Our Coaches</h3>
+              <a href="coaches.html"
+                ><button class="doctors-coaches-button">
+                  Go To Coaches
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast"></div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <!-- Contact form section -->
+      <section class="contact">
+        <h3>Contact Us</h3>
+        <form action="#" id="contact-form" method="post" novalidate>
+          <input
+            type="email"
+            name="contactEmail"
+            id="contact-email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <p class="contact-alert"></p>
+          <textarea
+            name="contactMessage"
+            id="contact-message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+          <p class="contact-alert"></p>
+          <button type="submit" id="contact-submit-button">Submit</button>
+        </form>
+      </section>
+      <!-- Footer content -->
+      <div class="footer-content">
+        <!-- Footer navigation links -->
+        <ul class="footer-links">
+          <li class="footer-link"><a href="index.html">Home</a></li>
+          <li class="footer-link"><a href="menu.html">Menu</a></li>
+          <li class="footer-link"><a href="Cart.html">Cart</a></li>
+          <li class="footer-link"><a href="doctors.html">Doctors</a></li>
+          <li class="footer-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+
+        <a href="index.html"><h3>Health Empire</h3></a>
+        <p>Expert guidance. Real results. Your wellness journey starts here.</p>
+
+        <!-- Social media links -->
+        <div class="social-links">
+          <a href="#" title="Follow us on Facebook">
+            <i class="fa-brands fa-facebook-f social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Twitter">
+            <i class="fa-brands fa-twitter social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Instagram">
+            <i class="fa-brands fa-instagram social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on TikTok">
+            <i class="fa-brands fa-tiktok social-icon"></i>
+          </a>
+        </div>
+        <!-- Copyright text -->
+        <p>
+          &copy; <span id="current-year"></span> Health Empire. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="js/home.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ai.js"></script>
+  </body>
+</html>

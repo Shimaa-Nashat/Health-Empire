@@ -1,0 +1,435 @@
+/* ================= NAVBAR ================= */
+.navbar {
+  background: var(--section-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px 25px 40px;
+  height: 100px;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+.navbar .logo {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  transition: var(--transition);
+}
+.logo h3 {
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--primary), var(--highlight));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nav-logo {
+  width: 60px;
+}
+.logo:hover {
+  transform: scale(1.03);
+}
+.nav-links-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+.nav-link a {
+  color: var(--accent);
+  font-size: clamp(16px, 1.6vw, 17px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+#menu-toggle {
+  font-size: clamp(20px, 2vw, 25px);
+  cursor: pointer;
+  display: none;
+  color: var(--mode);
+}
+#menu-toggle :hover {
+  transform: scale(1.03);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-link {
+  transition: 0.1s;
+}
+.nav-link:hover {
+  transform: scale(1.03);
+}
+.nav-link a:hover {
+  color: var(--highlight);
+}
+.login-button {
+  padding: 10px 35px;
+  background-color: var(--accent);
+  color: var(--mode);
+  border: none;
+  border-radius: 20px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.login-button:hover {
+  background-color: var(--accent-mid);
+  transform: scale(1.03);
+}
+/* ===== PROFILE MENU ===== */
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.profile-trigger:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+.profile-icon {
+  font-size: 1.6rem;
+  color: var(--primary-color,--accent);
+}
+
+.profile-trigger span {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.profile-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+
+.profile-menu.open .profile-arrow {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  background: var(--section-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 16px;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.profile-menu.open .profile-dropdown {
+  display: block;
+}
+
+.profile-dropdown p {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.profile-dropdown p:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 12px 0;
+}
+
+.logout-btn {
+  width: 100%;
+  background: none;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--footer-bg);
+  color: var(--mode);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  margin-top: auto;
+  padding: 30px;
+}
+.contact {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  margin-top: 10px;
+}
+.contact h3 {
+  font-size: clamp(20px, 2.5vw, 25px);
+  margin-left: 5px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#contact-email {
+  background-color: var(--input-bg);
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+#contact-email::placeholder {
+  color: var(--accent-mid);
+  letter-spacing: 1px;
+}
+#contact-message {
+  background-color: var(--input-bg);
+  padding: 12px;
+  width: 100%;
+  height: 190px;
+  resize: none;
+  border: none;
+  border-radius: 15px;
+}
+#contact-message::placeholder {
+  color: var(--accent-mid);
+  margin-left: 5px;
+  letter-spacing: 1px;
+}
+#contact-message:focus,
+#contact-email:focus {
+  outline: 1px solid var(--highlight);
+}
+#contact-submit-button {
+  padding: 7px 25px;
+  background: var(--accent-mid);
+  color: var(--mode);
+  border: none;
+  border-radius: 20px;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 600;
+}
+#contact-submit-button:hover {
+  background: var(--accent-light);
+  transform: scale(1.03);
+}
+.contact-alert {
+  width: 100%;
+  text-align: left;
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #e83232;
+  padding-left: 10px;
+}
+.footer-content {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  row-gap: 10px;
+}
+.footer-link a {
+  color: var(--footer-text);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.footer-link a:hover {
+  color: var(--text-light);
+}
+.footer-link {
+  transition: 0.1s;
+}
+.footer-link:hover {
+  transform: scale(1.03);
+}
+.footer-content h3 {
+  font-size: clamp(20px, 2.5vw, 25px);
+  color: var(--text-light);
+  font-weight: 600;
+  width: fit-content;
+  transition: 0.2s;
+}
+.footer-content h3:hover {
+  transform: scale(1.03);
+}
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+.social-icon {
+  font-size: clamp(20px, 2vw, 25px);
+  color: var(--text-light);
+  transition: 0.2s;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+}
+.footer-content p {
+  color: var(--footer-text);
+  font-size: clamp(12px, 1.2vw, 14px);
+  letter-spacing: 1px;
+}
+
+/* ================= MEDIA QUERIES ================= */
+
+@media (max-width: 1024px) {
+  .nav-links.active {
+    right: 20px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  #menu-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: var(--transition);
+  }
+  #menu-toggle:hover {
+    background: var(--accent-mid);
+  }
+  .nav-links {
+    position: fixed;
+    top: 88px;
+    right: 20px;
+    width: min(320px, calc(100vw - 40px));
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    padding: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: var(--transition);
+    z-index: 1001;
+  }
+  .nav-link a {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+  .nav-link a:hover {
+    background: var(--section-bg-hover);
+  }
+}
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 90%;
+  }
+  .contact {
+    width: 85%;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+@media (max-width: 620px) {
+  .contact {
+    width: 95%;
+  }
+  .logo img {
+    width: 8.3vw;
+  }
+  .login-button {
+    padding: 10px 30px;
+  }
+  .navbar {
+    padding: 20px;
+    height: 84px;
+  }
+  .footer-content p {
+    width: 90%;
+  }
+  .social-icon {
+    font-size: clamp(18px, 2vw, 25px);
+  }
+}
+@media (max-width: 500px) {
+  .footer {
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 400px) {
+      .login-button {
+        padding: 8px 20px;
+    }
+    .nav-right {
+      gap: 10px;
+    }
+    .logo h3{
+      font-size: clamp(16px, 1.6vw, 18px);
+    }
+    .profile-trigger span {
+      display: none;
+    }
+    .profile-dropdown{
+      right: -50px;
+    }
+}

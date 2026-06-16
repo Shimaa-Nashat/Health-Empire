@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
+    <title>Health Empire - Order Tracking</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/track.css" />
+    <link rel="stylesheet" href="css/ai.css" />
+  </head>
+
+  <body>
+    <button id="ai-fab"><img src="images/ai.png" alt="AI Assistant" class="ai-icon"></button>
+    <div id="chat-modal" class="chat-modal">
+      <div class="chat-header">
+        <h4>NutriBot AI</h4>
+        <button id="close-chat">✖</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <div class="input-box">
+        <input id="userInput" placeholder="Ask NutriBot..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+    <nav class="navbar">
+      <!-- Website logo and name -->
+      <a href="index.html">
+        <header class="logo">
+          <img
+            class="nav-logo"
+            src="images/logo.png"
+            alt="Health Empire Logo"
+          />
+          <h3>Health Empire</h3>
+        </header>
+      </a>
+
+      <!-- Navigation links container -->
+      <div class="nav-links-container">
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-link"><a href="index.html">Home</a></li>
+          <li class="nav-link"><a href="menu.html">Menu</a></li>
+          <li class="nav-link"><a href="Cart.html">Cart</a></li>
+          <li class="nav-link"><a href="doctors.html">Doctors</a></li>
+          <li class="nav-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+        <div class="nav-right">
+  <!-- لما يكون logged out -->
+  <a href="login-signup.html" id="login-btn">
+    <button class="login-button">Login</button>
+  </a>
+ 
+  <!-- لما يكون logged in (مخفي في البداية) -->
+  <div class="profile-menu" id="profile-menu" style="display:none;">
+    <div class="profile-trigger" id="profile-trigger">
+      <i class="fa-solid fa-circle-user profile-icon"></i>
+      <span id="profile-username"></span>
+      <i class="fa-solid fa-chevron-down profile-arrow"></i>
+    </div>
+    <div class="profile-dropdown" id="profile-dropdown">
+      <p id="dropdown-username"></p>
+      <p id="dropdown-email"></p>
+      <hr>
+      <button onclick="logout()" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+ 
+  <div id="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+</div>
+      </div>
+    </nav>
+    <div class="page">
+      <!-- ===== SEARCH ROW ===== -->
+      <div class="search-row">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Track another order…"
+        />
+        <button class="btn btn-primary">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Track
+        </button>
+      </div>
+
+      <!-- ===== MAIN GRID: MAP + DETAILS ===== -->
+      <div class="track-grid">
+        <!-- Map -->
+        <div class="card map-card">
+          <iframe
+            src="https://www.google.com/maps?q=New+Cairo,+Cairo,+Egypt&output=embed&z=13"
+            allowfullscreen
+            loading="lazy"
+            title="Delivery map"
+          >
+          </iframe>
+        </div>
+
+        <!-- Order details -->
+        <div class="card">
+          <div class="detail-head">
+            <div>
+              <p class="detail-order-id">Order number</p>
+              <p class="detail-order-num">#82940</p>
+            </div>
+            <span class="badge badge-green">
+              <i class="fa-solid fa-motorcycle"></i>
+              On the way
+            </span>
+          </div>
+
+          <!-- Meal summary -->
+          <div class="meal-summary">
+            <div class="meal-thumb">🥗</div>
+            <div>
+              <p class="meal-name">Grilled Chicken Bowl</p>
+              <p class="meal-desc">1× Large · No onions</p>
+              <p class="meal-price">EGP 185.00</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="detail-list">
+            <div>
+              <p class="detail-label">Delivery address</p>
+              <p class="detail-val">123 Healthy St., New Cairo, Cairo, Egypt</p>
+            </div>
+            <div>
+              <p class="detail-label">Payment method</p>
+              <p class="detail-val">Cash on delivery</p>
+            </div>
+            <div class="detail-row">
+              <div>
+                <p class="detail-label">Estimated arrival</p>
+                <p class="detail-val">25 – 30 mins</p>
+              </div>
+              <button class="btn btn-ghost" id="call-driver-btn">
+                <i class="fa-solid fa-phone"></i>
+                Call driver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TIMELINE ===== -->
+      <div class="card">
+        <p class="timeline-section-label">Order status</p>
+        <div class="timeline">
+          <div class="tl-track"></div>
+          <div class="tl-progress" id="tl-progress"></div>
+
+          <div class="tl-step done">
+            <div class="tl-dot"><i class="fa-solid fa-check"></i></div>
+            <p class="tl-name">Order placed</p>
+            <p class="tl-time">Apr 23, 1:30 PM</p>
+          </div>
+
+          <div class="tl-step done">
+            <div class="tl-dot"><i class="fa-solid fa-tools"></i></div>
+            <p class="tl-name">Preparing</p>
+            <p class="tl-time">Apr 23, 1:40 PM</p>
+          </div>
+
+          <div class="tl-step active">
+            <div class="tl-dot"><i class="fa-solid fa-motorcycle"></i></div>
+            <p class="tl-name">On the way</p>
+            <p class="tl-time">Apr 23, 2:00 PM</p>
+          </div>
+
+          <div class="tl-step">
+            <div class="tl-dot"><i class="fa-solid fa-home"></i></div>
+            <p class="tl-name">Delivered</p>
+            <p class="tl-time">Upcoming</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SUPPORT ROW ===== -->
+      <div class="support-row">
+        <div class="sup-card" onclick="alert('Estimated delivery: 25–30 mins')">
+          <i class="fa-solid fa-clock sup-icon"></i>
+          <p class="sup-title">Estimated delivery</p>
+          <p class="sup-sub">25 – 30 mins</p>
+        </div>
+        <div
+          class="sup-card"
+          onclick="alert('Your driver: Ahmed Mohamed\n📞 +20 10 0000 0000')"
+        >
+          <i class="fa-solid fa-user sup-icon"></i>
+          <p class="sup-title">Your driver</p>
+          <p class="sup-sub">Ahmed Mohamed</p>
+        </div>
+        <div
+          class="sup-card"
+          onclick="alert('Support: Our team is ready to help.\n📞 16500')"
+        >
+          <i class="fa-solid fa-headset sup-icon"></i>
+          <p class="sup-title">Need help?</p>
+          <p class="sup-sub">Our support team is here</p>
+        </div>
+      </div>
+    </div>
+    <!-- /page -->
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <!-- Contact form section -->
+      <section class="contact">
+        <h3>Contact Us</h3>
+        <form action="#" id="contact-form" method="post" novalidate>
+          <input
+            type="email"
+            name="contactEmail"
+            id="contact-email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <p class="contact-alert"></p>
+          <textarea
+            name="contactMessage"
+            id="contact-message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+          <p class="contact-alert"></p>
+          <button type="submit" id="contact-submit-button">Submit</button>
+        </form>
+      </section>
+
+      <!-- Footer content -->
+      <div class="footer-content">
+        <!-- Footer navigation links -->
+        <ul class="footer-links">
+          <li class="footer-link"><a href="index.html">Home</a></li>
+          <li class="footer-link"><a href="menu.html">Menu</a></li>
+          <li class="footer-link"><a href="Cart.html">Cart</a></li>
+          <li class="footer-link"><a href="doctors.html">Doctors</a></li>
+          <li class="footer-link"><a href="coaches.html">Coach</a></li>
+        </ul>
+
+        <a href="index.html"><h3>Health Empire</h3></a>
+        <p>Expert guidance. Real results. Your wellness journey starts here.</p>
+
+        <!-- Social media links -->
+        <div class="social-links">
+          <a href="#" title="Follow us on Facebook">
+            <i class="fa-brands fa-facebook-f social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Twitter">
+            <i class="fa-brands fa-twitter social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on Instagram">
+            <i class="fa-brands fa-instagram social-icon"></i>
+          </a>
+          <a href="#" title="Follow us on TikTok">
+            <i class="fa-brands fa-tiktok social-icon"></i>
+          </a>
+        </div>
+        <!-- Copyright text -->
+        <p>
+          &copy; <span id="current-year"></span> Health Empire. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/track.js"></script>
+    <script src="js/ai.js"></script>
+  </body>
+</html>

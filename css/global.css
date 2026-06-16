@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&family=DM+Serif+Display&display=swap");
+
+/* ================= root ================= */
+:root {
+      /* Primary */
+      --primary-visa: #2e8b57;
+      --primary-mid-visa: #266143;
+      --primary-dark-visa: #1a3d2c;
+      --primary: #5e7242;
+      --primary-gradient: linear-gradient(135deg, #6f844f, #5e7242);
+
+      /* Accent */
+      --accent: #000000;
+      --accent-mid: #3a3a3a;
+      --accent-light: #5e5d5d;
+
+      /* Backgrounds */
+      --section-bg: #ffffff;
+      --section-bg-hover: #e9e7e3;
+
+      /* Text */
+      --text-primary: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --text-light: #999898;
+
+      /* Borders */
+      --border: #e0d8cd;
+      --mode: #ffffff;
+
+      /* Accent alternative */
+      --highlight: #ee7715de;
+      --rating: #dbba00;
+      --cal: linear-gradient(90deg, rgb(230, 2, 2), rgb(156, 4, 156));
+
+      /* Footer */
+      --footer-bg: var(--accent);
+      --footer-text: var(--mode);
+
+      /* Gradient */
+      --gradient-1: #f7f8fa;
+      --gradient-2: #e6e9ee;
+      --bg-gradient: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+
+      /* Inputs */
+      --input-bg: #ffffffee;
+
+      /* Transition */
+      --transition: 0.3s ease;
+
+      /* ── Mapped aliases used by components ── */
+      --bg: var(--bg-gradient);
+      --surface: var(--section-bg);
+      --surface-2: var(--section-bg-hover);
+      --border-md: #c8bfb4;
+      --accent-fg: var(--mode);
+      --green: var(--primary-visa);
+      --green-bg: #e6f4ed;
+      --amber: var(--highlight);
+      --amber-bg: #fff4ea;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Primary */
+        --primary-visa: #95d6b0;
+        --primary-mid-visa: #8ae2b8;
+        --primary-dark-visa: #999999;
+        --primary: #9bae7c;
+        --primary-gradient: linear-gradient(135deg, #9bae7c, #7f9663);
+
+        /* Accent */
+        --accent: #f2f2f2;
+        --accent-mid: #8a8a8a;
+        --accent-light: #d6d6d6;
+
+        /* Backgrounds */
+        --section-bg: #1e1e1e;
+        --section-bg-hover: #252525;
+
+        /* Text */
+        --text-primary: #f5f5f5;
+        --text-secondary: #b5b5b5;
+        --text-light: #ffffff;
+
+        /* Borders */
+        --border: #2f2f2f;
+        --mode: #121212;
+
+        /* Accent alternative */
+        --highlight: #b55700de;
+        --rating: #ffd700;
+        --cal: linear-gradient(90deg, rgb(241, 48, 48), rgb(212, 28, 212));
+
+        /* Footer */
+        --footer-bg: #0d0d0d;
+        --footer-text: #b5b5b5;
+
+        /* Gradient */
+        --gradient-1: #121212;
+        --gradient-2: #1a1a1a;
+        --bg-gradient: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+
+        /* Inputs */
+        --input-bg: #1f1f1fee;
+
+        /* ── Mapped aliases ── */
+        --bg: var(--bg-gradient);
+        --surface: var(--section-bg);
+        --surface-2: var(--section-bg-hover);
+        --border-md: #3f3f3f;
+        --accent-fg: var(--mode);
+        --green: var(--primary-visa);
+        --green-bg: #0d2b1d;
+        --amber: var(--highlight);
+        --amber-bg: #271a08;
+        --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      }
+    }
