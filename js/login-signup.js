@@ -249,10 +249,8 @@ resetForm.addEventListener("submit", (e) => {
   const resetData = { email, token, expiresAt: Date.now() + 15 * 60 * 1000 };
   localStorage.setItem("resetToken", JSON.stringify(resetData));
 
-  const fakeResetLink = `${window.location.origin}/reset-password.html?token=${token}`;
-  console.log("🔑 Password Reset Link (simulated):", fakeResetLink);
 
-  alert("Password reset link generated!\nCheck the browser Console (F12) for the reset link.");
+  alert("Password reset sent to you!");
 
   resetForm.reset();
   resetEmail.classList.remove("success-border", "error-border");
